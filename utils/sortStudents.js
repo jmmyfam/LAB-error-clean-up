@@ -1,5 +1,6 @@
 import studentsOnDom from '../public/students';
 import { houses, students } from './sample_data/arrays';
+import createId from './createId';
 
 const sortStudent = (e) => {
   e.preventDefault();
@@ -7,16 +8,7 @@ const sortStudent = (e) => {
 
   if (e.target.id === 'sorting') {
     const student = document.querySelector('#student-name');
-    // Create a new ID for the students
-    const createId = (array) => {
-      if (array.length) {
-        const idArray = array.map((el) => el.id);
-        return Math.max(...idArray) + 1;
-      }
-      return 0;
-    };
 
-    // create the new student object
     students.push({
       id: createId(students),
       name: student.value,
